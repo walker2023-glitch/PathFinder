@@ -1,0 +1,847 @@
+/* ── Override Vite scaffold root constraints ── */
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+  border-inline: none;
+  min-height: 100svh;
+  display: block;
+}
+
+/* ── Status colour tokens ─────────────────────────────────────────────────── */
+:root {
+  /* green — completed */
+  --green:        #16a34a;
+  --green-bg:     rgba(22, 163, 74, 0.08);
+  --green-border: rgba(22, 163, 74, 0.30);
+  --green-text:   #15803d;
+
+  /* yellow — in-progress / planned */
+  --yellow:        #d97706;
+  --yellow-bg:     rgba(217, 119, 6, 0.09);
+  --yellow-border: rgba(217, 119, 6, 0.32);
+  --yellow-text:   #b45309;
+
+  /* blue — in-progress card */
+  --blue:        #2563eb;
+  --blue-bg:     rgba(37, 99, 235, 0.07);
+  --blue-border: rgba(37, 99, 235, 0.28);
+  --blue-text:   #1d4ed8;
+
+  /* red — missing */
+  --red:        #dc2626;
+  --red-bg:     rgba(220, 38, 38, 0.07);
+  --red-border: rgba(220, 38, 38, 0.28);
+  --red-text:   #b91c1c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --green:        #4ade80;
+    --green-bg:     rgba(74, 222, 128, 0.10);
+    --green-border: rgba(74, 222, 128, 0.28);
+    --green-text:   #4ade80;
+
+    --yellow:        #fbbf24;
+    --yellow-bg:     rgba(251, 191, 36, 0.10);
+    --yellow-border: rgba(251, 191, 36, 0.28);
+    --yellow-text:   #fbbf24;
+
+    --blue:        #60a5fa;
+    --blue-bg:     rgba(96, 165, 250, 0.10);
+    --blue-border: rgba(96, 165, 250, 0.28);
+    --blue-text:   #93c5fd;
+
+    --red:        #f87171;
+    --red-bg:     rgba(248, 113, 113, 0.10);
+    --red-border: rgba(248, 113, 113, 0.28);
+    --red-text:   #fca5a5;
+  }
+}
+
+/* ── Dashboard shell ──────────────────────────────────────────────────────── */
+
+.dashboard {
+  display: flex;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────────────────── */
+
+.sidebar {
+  width: 268px;
+  min-width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.sidebar-header {
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.sidebar-header h2 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--text-h);
+}
+
+/* ── Legend row ── */
+
+.sidebar-legend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.legend-dot.missing    { background: var(--red); }
+.legend-dot.inprogress { background: var(--yellow); }
+.legend-dot.completed  { background: var(--green); }
+
+.legend-count {
+  font-size: 11px;
+  color: var(--text);
+  opacity: 0.65;
+  margin-right: 6px;
+}
+
+.sidebar-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0 20px;
+}
+
+.req-source { margin-bottom: 14px; }
+
+.req-source-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin: 0 0 5px;
+  padding: 0 14px;
+}
+
+.req-category {
+  margin-bottom: 7px;
+  padding: 0 14px;
+}
+
+.category-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.55;
+  margin: 0 0 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+/* Base pill */
+.req-pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  cursor: grab;
+  transition: opacity 0.12s, box-shadow 0.12s;
+  border: 1px solid transparent;
+}
+.req-pill:active { cursor: grabbing; }
+.req-pill:hover  { opacity: 0.8; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
+
+/* Status variants */
+.req-pill.pill-missing {
+  background: var(--red-bg);
+  color: var(--red-text);
+  border-color: var(--red-border);
+}
+.req-pill.pill-inprogress {
+  background: var(--yellow-bg);
+  color: var(--yellow-text);
+  border-color: var(--yellow-border);
+}
+.req-pill.pill-completed {
+  background: var(--green-bg);
+  color: var(--green-text);
+  border-color: var(--green-border);
+}
+
+.all-planned {
+  font-size: 12px;
+  color: var(--green);
+  text-align: center;
+  padding: 16px;
+  font-weight: 600;
+}
+
+/* ── Canvas ───────────────────────────────────────────────────────────────── */
+
+.canvas {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.canvas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px 11px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.canvas-title h1 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0 0 2px;
+  color: var(--text-h);
+}
+
+.canvas-sub {
+  font-size: 11px;
+  color: var(--text);
+  opacity: 0.6;
+  margin: 0;
+}
+
+/* ── Error banner ── */
+
+.action-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  color: var(--red-text);
+  border-radius: 6px;
+  padding: 7px 11px;
+  font-size: 12px;
+  max-width: 460px;
+}
+
+.dismiss-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 1;
+  padding: 0 2px;
+  color: inherit;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+.dismiss-btn:hover { opacity: 1; }
+
+/* ── Semester grid ────────────────────────────────────────────────────────── */
+
+.semester-grid {
+  display: flex;
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.semester-col {
+  flex: 0 0 196px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+  transition: background 0.12s;
+}
+.semester-col:last-child { border-right: none; }
+
+/* Era tinting */
+.semester-col.era-past    { background: rgba(0,0,0,0.014); }
+.semester-col.era-current { border-top: 2px solid var(--accent); }
+@media (prefers-color-scheme: dark) {
+  .semester-col.era-past { background: rgba(255,255,255,0.018); }
+}
+
+/* ── Drag-over highlight ── */
+.semester-col.drag-over {
+  background: var(--accent-bg);
+  outline: 2px dashed var(--accent-border);
+  outline-offset: -2px;
+}
+
+/* ── Column header ── */
+
+.semester-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 11px 7px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  gap: 5px;
+}
+
+.semester-title-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+}
+
+.semester-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-h);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.era-badge {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 1px 4px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.era-badge.past {
+  background: rgba(0,0,0,0.07);
+  color: var(--text);
+  opacity: 0.55;
+}
+.era-badge.current {
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+}
+
+.credit-badge {
+  font-size: 10px;
+  color: var(--text);
+  opacity: 0.45;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Progress bar ── */
+
+.progress-bar {
+  height: 2px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--green);
+  transition: width 0.3s ease;
+}
+
+/* ── Course list ── */
+
+.course-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 7px 7px 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ── Course card ── */
+
+.course-card {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 5px;
+  padding: 5px 6px 5px 4px;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.course-card.status-in-progress {
+  background: var(--blue-bg);
+  border-color: var(--blue-border);
+}
+.course-card.status-completed {
+  background: var(--green-bg);
+  border-color: var(--green-border);
+}
+
+/* ── 3-state status button ── */
+
+.status-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  padding: 0;
+  width: 17px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  transition: opacity 0.12s, color 0.12s, background 0.12s;
+}
+
+/* planned — grey, dim; hover hints at yellow (next is in-progress) */
+.status-btn.s-planned {
+  color: var(--text);
+  opacity: 0.35;
+}
+.status-btn.s-planned:hover {
+  color: var(--yellow);
+  opacity: 1;
+  background: var(--yellow-bg);
+}
+
+/* in-progress — solid blue; hover hints at green (next is completed) */
+.status-btn.s-in-progress {
+  color: var(--blue);
+  opacity: 0.9;
+}
+.status-btn.s-in-progress:hover {
+  color: var(--green);
+  opacity: 1;
+  background: var(--green-bg);
+}
+
+/* completed — solid green; hover hints at grey (next is planned) */
+.status-btn.s-completed {
+  color: var(--green-text);
+  opacity: 1;
+}
+.status-btn.s-completed:hover {
+  color: var(--text);
+  opacity: 0.55;
+  background: rgba(0,0,0,0.05);
+}
+
+/* ── Course code label ── */
+
+.course-code {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-h);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+}
+
+.course-card.status-in-progress .course-code { color: var(--blue-text); }
+.course-card.status-completed   .course-code { color: var(--green-text); }
+
+/* ── Remove button ── */
+
+.remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 1px;
+  color: var(--text);
+  opacity: 0.2;
+  flex-shrink: 0;
+  border-radius: 3px;
+  transition: opacity 0.12s, color 0.12s;
+}
+.remove-btn:hover { opacity: 1; color: var(--red); }
+
+/* ── Add row ── */
+
+.add-row {
+  display: flex;
+  gap: 5px;
+  padding: 6px 7px 7px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.add-input {
+  flex: 1;
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  outline: none;
+  min-width: 0;
+  transition: border-color 0.12s;
+}
+.add-input::placeholder { opacity: 0.38; }
+.add-input:focus { border-color: var(--accent); }
+
+.add-btn {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s, border-color 0.12s;
+  flex-shrink: 0;
+}
+.add-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ── Backend offline ──────────────────────────────────────────────────────── */
+
+.load-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 100svh;
+  padding: 40px;
+  text-align: center;
+}
+.load-error h2 { color: var(--red); margin: 0; }
+.load-error p  { font-size: 14px; color: var(--text); margin: 0; }
+
+/* ── Header actions row ───────────────────────────────────────────────────── */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.audit-btn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 13px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+  color: var(--text-h);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+  flex-shrink: 0;
+}
+.audit-btn:hover {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+/* ── Audit modal backdrop ─────────────────────────────────────────────────── */
+
+.audit-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+  backdrop-filter: blur(2px);
+}
+
+/* ── Audit modal panel ── */
+
+.audit-modal {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 820px;
+  max-height: 88svh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.audit-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 22px 14px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.audit-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-h);
+  margin: 0 0 3px;
+  letter-spacing: -0.3px;
+}
+
+.audit-sub {
+  font-size: 11px;
+  color: var(--text);
+  opacity: 0.6;
+  margin: 0;
+}
+
+.audit-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text);
+  opacity: 0.45;
+  padding: 0 2px;
+  transition: opacity 0.12s;
+  flex-shrink: 0;
+}
+.audit-close:hover { opacity: 1; }
+
+/* ── Summary bar ── */
+
+.audit-summary {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.audit-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.audit-stat-num {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  font-family: var(--mono);
+}
+.audit-stat-num.green  { color: var(--green); }
+.audit-stat-num.yellow { color: var(--yellow); }
+.audit-stat-num.red    { color: var(--red); }
+
+.audit-stat-label {
+  font-size: 10px;
+  color: var(--text);
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.audit-progress-wrap {
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.audit-progress-bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.audit-progress-fill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+.audit-progress-pct {
+  font-size: 11px;
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* ── Modal body (two columns) ── */
+
+.audit-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+}
+
+.audit-section {
+  overflow-y: auto;
+  padding: 16px 20px 20px;
+}
+
+.audit-section:first-child {
+  border-right: 1px solid var(--border);
+}
+
+.audit-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text);
+  opacity: 0.55;
+  margin: 0 0 12px;
+}
+
+.audit-empty {
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.5;
+  margin: 0;
+}
+
+/* ── Completed by semester ── */
+
+.audit-sem-group {
+  margin-bottom: 14px;
+}
+
+.audit-sem-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-h);
+  margin: 0 0 5px;
+}
+
+.audit-course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.audit-course-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+}
+
+.audit-check {
+  color: var(--green);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.audit-course-code {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+/* ── Requirement checklist ── */
+
+.audit-req-source {
+  margin-bottom: 14px;
+}
+
+.audit-req-source-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--accent);
+  margin: 0 0 6px;
+}
+
+.audit-req-category {
+  margin-bottom: 8px;
+}
+
+.audit-req-cat-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+}
+
+.audit-req-fraction {
+  font-weight: 400;
+  opacity: 0.7;
+  margin-left: 4px;
+}
+
+.audit-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.audit-pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+.audit-pill.done {
+  background: var(--green-bg);
+  border-color: var(--green-border);
+  color: var(--green-text);
+}
+.audit-pill.missing {
+  background: var(--red-bg);
+  border-color: var(--red-border);
+  color: var(--red-text);
+  opacity: 0.65;
+}

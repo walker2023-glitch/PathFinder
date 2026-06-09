@@ -1,0 +1,246 @@
+[
+{
+"modified": {
+"date": 1576603493564,
+"id": "5787f67dc69e580f055d27d0",
+"name": "kualiadmin (impersonated by Shawn Massengill)"
+},
+"_id": "58dc843f984c63d67b7f3e4b",
+"institutionId": "5787f67dc69e580f055d27cf",
+"startDate": "2017-06-04",
+"navigation": [
+{
+"homeItem": true,
+"id": "58af75c4a1f757993d7e75f4",
+"required": false,
+"title": "President's Message",
+"to": "/content/58af75c4a1f757993d7e75f4"
+},
+{
+"id": "58e3e0d7010d059d6ed30cb6",
+"required": false,
+"title": "Mission and Purpose",
+"to": "/sets/58e3e0d7010d059d6ed30cb6"
+},
+{
+"to": "/sets/58af7364a1f757993d7e75f0",
+"title": "Administration",
+"required": false,
+"id": "58af7364a1f757993d7e75f0"
+},
+{
+"required": true,
+"to": "/programs",
+"title": "Programs"
+},
+{
+"required": true,
+"to": "/courses",
+"title": "Courses"
+},
+{
+"to": "/sets/58e6c97c506b2a4517bd6e14",
+"title": "Foundations",
+"required": false,
+"id": "58e6c97c506b2a4517bd6e14"
+},
+{
+"to": "/sets/59020da226140d0d0340cc17",
+"title": "Academic Deadlines",
+"required": false,
+"id": "59020da226140d0d0340cc17"
+},
+{
+"required": true,
+"to": "/policies",
+"title": "Policies"
+},
+{
+"id": "5900e7f226140d0d0340cc13",
+"required": false,
+"title": "Colleges",
+"to": "/sets/5900e7f226140d0d0340cc13"
+},
+{
+"to": "/sets/589b56d902ae374204a6de27",
+"title": "Departments",
+"required": false,
+"id": "589b56d902ae374204a6de27"
+},
+{
+"id": "58cfedb00cb6556c19d0f4de",
+"required": false,
+"title": "Campus Directory",
+"to": "/sets/58cfedb00cb6556c19d0f4de"
+},
+{
+"id": "5931c77125f9da5b09639dbf",
+"required": false,
+"title": "About this Catalog",
+"to": "/sets/5931c77125f9da5b09639dbf"
+},
+{
+"required": true,
+"to": "/addenda",
+"title": "Addenda (Changes)"
+},
+{
+"to": "/sets/5a032eb07148f10029eda4d9",
+"title": "Addenda",
+"required": false,
+"id": "5a032eb07148f10029eda4d9"
+}
+],
+"title": "2017-2019 BYU-Idaho Catalog",
+"coverItemId": "58c02c584876acb56a6a6ad2",
+"subdomain": "byui",
+"homeItem": "58af75c4a1f757993d7e75f4",
+"endDate": "2018-12-20",
+"query": "{\"renderRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}],\"dependenciesRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}]}",
+"timeZone": "America/Denver"
+},
+{
+"created": {
+"date": 1521739488012,
+"id": "578cfeabf764effe0672e92c",
+"name": "Hunter, Tania"
+},
+"modified": {
+"date": 1574725191659,
+"id": "5787f67dc69e580f055d27d0",
+"name": "kualiadmin (impersonated by Shawn Massengill)"
+},
+"_id": "5ab3e6e0680e1a001a093dbc",
+"endDate": "2019-11-30",
+"startDate": "2018-12-20",
+"title": "2019-2020 BYU-Idaho Catalog",
+"query": "{\"renderRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}],\"dependenciesRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}]}",
+"timeZone": "America/Denver"
+},
+{
+"created": {
+"date": 1571076748905,
+"id": "57eed4004b709b2e3ca5d71e",
+"name": "Lyons, Heather"
+},
+"modified": {
+"date": 1699978476913,
+"id": "5787f67dc69e580f055d27d0",
+"name": "kualiadmin (impersonated by Vicky Kulig)"
+},
+"_id": "5da4ba8c040540001a7c83e2",
+"endDate": "2020-11-30",
+"startDate": "2019-11-30",
+"title": "2020-2021 BYU-Idaho Catalog",
+"query": "{\"renderRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}],\"dependenciesRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}]}",
+"timeZone": "America/Denver"
+},
+{
+"created": {
+"date": 1602521561791,
+"id": "5bfc548669be2f00017df7e9",
+"name": "Graham, Cody"
+},
+"modified": {
+"date": 1606835441262,
+"id": "57d3176501213fd50e3ecf8e",
+"name": "Bradshaw, Joanna"
+},
+"_id": "5f8489d9c40c22001a3ff442",
+"endDate": "2021-11-30",
+"startDate": "2020-11-30",
+"title": "2021-2022 BYU-Idaho Catalog",
+"query": "{\"renderRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}],\"dependenciesRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}]}",
+"timeZone": "America/Denver"
+},
+{
+"created": {
+"date": 1627580280833,
+"id": "57d3176501213fd50e3ecf8e",
+"name": "Bradshaw, Joanna"
+},
+"modified": {
+"date": 1627580338719,
+"id": "57d3176501213fd50e3ecf8e",
+"name": "Bradshaw, Joanna"
+},
+"_id": "6102e778ef84b869ba4eb375",
+"endDate": "2022-11-30",
+"startDate": "2021-11-30",
+"title": "2022-2023 BYU-Idaho Catalog",
+"query": "{\"renderRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}],\"dependenciesRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}]}",
+"timeZone": "America/Denver"
+},
+{
+"created": {
+"date": 1667494932304,
+"id": "61f9b02df7a30800214ac52b",
+"name": "Laurie Williams"
+},
+"modified": {
+"date": 1681506345292,
+"id": "621ff7b389c8510018cfadca",
+"name": "Gaona Angles, Desiree"
+},
+"_id": "6363f414bf5f80001cdf571d",
+"endDate": "2023-11-30",
+"startDate": "2022-11-30",
+"title": "2023-2024 BYU-Idaho Catalog",
+"query": "{\"renderRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}],\"dependenciesRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}]}",
+"timeZone": "America/Denver"
+},
+{
+"created": {
+"date": 1699394937723,
+"id": "61f9b02df7a30800214ac52b",
+"name": "Laurie Williams"
+},
+"modified": {
+"date": 1701198609139,
+"id": "5787f67dc69e580f055d27d0",
+"name": "kualiadmin (impersonated by Vicky Kulig)"
+},
+"_id": "654ab5797c1f9a001cd1c92b",
+"endDate": "2024-11-30",
+"startDate": "2023-11-30",
+"title": "2024-2025 BYU-Idaho Catalog",
+"query": "{\"renderRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}],\"dependenciesRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}]}",
+"timeZone": "America/Denver"
+},
+{
+"created": {
+"date": 1730328025636,
+"id": "61f9b02df7a30800214ac52b",
+"name": "Laurie Williams"
+},
+"modified": {
+"date": 1730328102382,
+"id": "61f9b02df7a30800214ac52b",
+"name": "Laurie Williams"
+},
+"_id": "6722b5d9a1ac0e001c14c522",
+"endDate": "2025-11-30",
+"startDate": "2024-11-30",
+"title": "2025-2026 BYU-Idaho Catalog",
+"query": "{\"renderRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}],\"dependenciesRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}]}",
+"timeZone": "America/Denver"
+},
+{
+"created": {
+"name": "Laurie Williams",
+"id": "61f9b02df7a30800214ac52b",
+"date": 1759268215843
+},
+"modified": {
+"name": "Laurie Williams",
+"id": "61f9b02df7a30800214ac52b",
+"date": 1759268343503
+},
+"_id": "68dc4d77c3ad086d83653f48",
+"endDate": "2026-11-30",
+"startDate": "2025-11-30",
+"title": "2026-2027 BYU-Idaho Catalog",
+"query": "{\"renderRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}],\"dependenciesRules\":[{\"field\":\"status\",\"operator\":\"in\",\"value\":[\"active\",\"inactive\",\"retired\",\"revision\"]},{\"field\":\"includeInCatalog\",\"operator\":\"is\",\"value\":true},{\"field\":\"catalogActivationDate\",\"operator\":\"lte\",\"value\":\"$$endDate\"},{\"field\":\"dateEnd\",\"operator\":\"gt\",\"value\":\"$$startDate\"}]}",
+"timeZone": "America/Denver"
+}
+]
